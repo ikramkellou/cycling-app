@@ -6,12 +6,12 @@ public class Client {
     private String mail;
     private String phone;
 
-    public Client (String id,String firstName,String lastName,String address, String mail, String phone) {
+    public Client(String id,String firstName,String lastName,String address, String mail, String phone) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.address =  address;
-        this.mail =  mail;
+        this.address = address;
+        this.mail = mail;
         this.phone= phone;
     }
 
@@ -51,19 +51,19 @@ public class Client {
 
     //mail
     public String getMail() {
-    return this.address;
+        return this.address;
     }
 
     public void setMail(String mail) {
-    this.mail = mail ;
+        this.mail = mail ;
     }
     //PHONE
     public String getPhone() {
         return this.phone;
-        }
+    }
     
-        public void setPhone(String phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
-        }
+    }
 }
 
