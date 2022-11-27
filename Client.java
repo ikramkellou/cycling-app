@@ -6,64 +6,62 @@ public class Client {
     private String mail;
     private String phone;
 
-    public Client(String id,String firstName,String lastName,String address, String mail, String phone) {
+    public Client(String id, String firstName, String lastName, String address, String mail, String phone) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.mail = mail;
-        this.phone= phone;
+        this.phone = phone;
     }
 
-    //  id
+    // Id
     public String getId() {
         return this.id;
     }
-    public void setId(String id) {
-        this.id = id;
-    }
-    // firstname
-    public String getFirstname() {
+
+    // firstName
+    public String getFirstName() {
         return this.firstName;
     }
 
-    public void setFirstname(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    // Lastname
-    public String getLastname() {
+    // lastname
+    public String getLastName() {
         return this.lastName;
     }
 
-    public void setLastname(String lastName) {
-        this.lastName = lastName ;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    //address
+    // address
     public String getAddress() {
         return this.address;
     }
 
     public void setAddress(String address) {
-        this.address = address ;
+        this.address = address;
     }
 
-    //mail
+    // mail
     public String getMail() {
-        return this.address;
+        return this.mail;
     }
 
     public void setMail(String mail) {
-        this.mail = mail ;
+        this.mail = mail;
     }
-    //PHONE
+
+    // phone
     public String getPhone() {
         return this.phone;
     }
-    
+
     public void setPhone(String phone) {
         this.phone = phone;
     }
 }
-
