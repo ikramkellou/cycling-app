@@ -1,10 +1,10 @@
-public class Rent {
+public class Booking {
     private String id;
     private String clientId;
     private String startDate;
     private String endDate;
 
-    public Rent(String id, String clientId, String startDate, String endDate) {
+    public Booking(String id, String clientId, String startDate, String endDate) {
         this.id = id;
         this.clientId = clientId;
         this.startDate = startDate;
