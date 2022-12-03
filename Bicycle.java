@@ -16,6 +16,17 @@ public class Bicycle {
         return this.id;
     }
 
+    public String getFormattedId() {
+        String formattedId = this.id;
+
+        int length = formattedId.length();
+        for (int i = 0; i < 6 - length; i++) {
+            formattedId = "0" + formattedId;
+        }
+
+        return formattedId;
+    }
+
     // color
     public String getColor() {
         return this.color;
@@ -23,6 +34,17 @@ public class Bicycle {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public String getFormattedColor() {
+        String formattedColor = this.color;
+
+        int length = formattedColor.length();
+        for (int i = 0; i < 4 - length; i++) {
+            formattedColor = " " + formattedColor;
+        }
+
+        return formattedColor;
     }
 
     // price
@@ -34,6 +56,17 @@ public class Bicycle {
         this.price = price;
     }
 
+    public String getFormattedPrice() {
+        String formattedPrice = Double.toString(price);
+
+        int length = formattedPrice.length();
+        for (int i = 0; i < 6 - length; i++) {
+            formattedPrice = "0" + formattedPrice;
+        }
+
+        return formattedPrice;
+    }
+
     // isAvailable
     public boolean getIsAvailable() {
         return this.isAvailable;
@@ -41,5 +74,19 @@ public class Bicycle {
 
     public void setIsAvailable(boolean isAvailable) {
         this.isAvailable = isAvailable;
+    }
+
+    public String getFormattedIsAvailable() {
+        if (this.isAvailable) {
+            return "Yes";
+        }
+        return " No";
+    }
+
+    public String getBicyleAsCsvLine() {
+        return getFormattedId() + "," +
+                getFormattedColor() + "," +
+                getFormattedPrice() + "," +
+                getFormattedIsAvailable();
     }
 }

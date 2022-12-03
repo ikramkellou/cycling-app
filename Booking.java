@@ -1,19 +1,19 @@
 public class Booking {
-    private String id;
+    private String bicycleId;
     private String clientId;
     private String startDate;
     private String endDate;
 
-    public Booking(String id, String clientId, String startDate, String endDate) {
-        this.id = id;
+    public Booking(String bicycleId, String clientId, String startDate, String endDate) {
+        this.bicycleId = bicycleId;
         this.clientId = clientId;
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
     // id
-    public String getId() {
-        return this.id;
+    public String getBicycleId() {
+        return this.bicycleId;
     }
 
     // clientId
