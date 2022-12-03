@@ -53,7 +53,7 @@ public class BicyleFile {
         }
     }
 
-    public void replaceLines(String targetLine, String replacementLine) {
+    public void replaceLine(String targetLine, String replacementLine) {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(BICYCLE_PATH))) {
             StringBuffer inputBuffer = new StringBuffer();
             String line;

@@ -1,10 +1,12 @@
 public class Booking {
+    private String id;
     private String bicycleId;
     private String clientId;
     private String startDate;
     private String endDate;
 
-    public Booking(String bicycleId, String clientId, String startDate, String endDate) {
+    public Booking(String id, String bicycleId, String clientId, String startDate, String endDate) {
+        this.id = id;
         this.bicycleId = bicycleId;
         this.clientId = clientId;
         this.startDate = startDate;
@@ -12,6 +14,11 @@ public class Booking {
     }
 
     // id
+    public String getId() {
+        return this.id;
+    }
+
+    // bicyleId
     public String getBicycleId() {
         return this.bicycleId;
     }
@@ -41,5 +48,9 @@ public class Booking {
 
     public void setEndDate(String endDate) {
         this.endDate = endDate;
+    }
+
+    public String getBookingAsCsvLine() {
+        return this.id + "," + this.bicycleId + "," + this.clientId + "," + this.startDate + "," + this.endDate;
     }
 }

@@ -50,6 +50,35 @@ public class Session {
         }
     }
 
+    public static long getID() {
+        // 10 digits.
+        long id = System.currentTimeMillis() % 10000000000L;
+        if (id <= 0) {
+            id = (0 + 1) % 10000000000L;
+        }
+        return id;
+    }
+
+    private Booking buildBooking() {
+        try (Scanner sc = new Scanner(System.in)) {
+            String boookingId = Long.toString(getID());
+
+            System.out.print("Client number (max 10 digits): ");
+            String clientId = sc.nextLine();
+
+            System.out.print("Bicyle number (max 6 digits): ");
+            String bicyleId = sc.nextLine();
+
+            System.out.print("Start Date (DD/MM/YYYY): ");
+            String startDate = sc.nextLine();
+
+            System.out.print("End Date (DD/MM/YYYY): ");
+            String endDate = sc.nextLine();
+
+            return new Booking(boookingId, bicyleId, clientId, startDate, endDate);
+        }
+    }
+
     public void updateBicycle() {
         bicyleFile.displayFile();
         try (Scanner sc = new Scanner(System.in)) {
@@ -61,12 +90,26 @@ public class Session {
                 System.out.println("Update the bicycle information, please!");
                 Bicycle bicyle = this.buildBicycle();
                 String replacementLine = bicyle.getBicyleAsCsvLine();
-                bicyleFile.replaceLines(targetLine, replacementLine);
+                bicyleFile.replaceLine(targetLine, replacementLine);
             }
         }
     }
 
-    // TODO: implement this method
-    // private Booking buildBooking() {
-    // }
+    public void deleteBooking() {
+        bookingFile.displayFile();
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("Enter the booking number to delete, please!");
+            String bookingId = sc.next();
+            String targetLine = bookingFile.getLineById(bookingId);
+            if (targetLine != null) {
+                bookingFile.deleteLine(targetLine);
+            }
+        }
+    }
+
+    public void bookBicyle() {
+        Booking booking = this.buildBooking();
+        String line = booking.getBookingAsCsvLine();
+        bookingFile.addLine(line);
+    }
 }

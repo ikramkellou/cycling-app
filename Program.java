@@ -22,12 +22,14 @@ public class Program {
                     session.updateBicycle();
                     break;
                 case 2:
+                    session.deleteBooking();
                     break;
                 case 3:
                     break;
                 case 4:
                     break;
                 case 5:
+                    session.bookBicyle();
                     break;
                 case 6:
                     break;
