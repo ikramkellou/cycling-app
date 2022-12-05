@@ -26,51 +26,52 @@ public class ClientFile {
 
         }
     }
-   
+
     public void displayFile() {
-    try (Scanner scanner = new Scanner(this.file)) {
-        while (scanner.hasNextLine()) {
-            String data = scanner.nextLine();
-            System.out.println(data);
-        }
-    } catch (IOException e) {
+        try (Scanner scanner = new Scanner(this.file)) {
+            while (scanner.hasNextLine()) {
+                String data = scanner.nextLine();
+                System.out.println(data);
+            }
+        } catch (IOException e) {
 
+        }
+    }
+
+    public String getLineById(String id) {
+        try (Scanner scanner = new Scanner(this.file)) {
+            while (scanner.hasNextLine()) {
+                String data = scanner.nextLine();
+                String[] array = data.split(",");
+
+                if (id.equals(array[0])) {
+                    return data;
+                }
+            }
+            return null;
+        } catch (IOException e) {
+            return null;
+        }
+    }
+
+    public void deleteLine(String targetLine) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(CLIENT_PATH))) {
+            StringBuffer inputBuffer = new StringBuffer();
+            String line;
+
+            while ((line = bufferedReader.readLine()) != null) {
+                if (!line.equals(targetLine)) {
+                    inputBuffer.append(line);
+                    inputBuffer.append('\n');
+                }
+
+            }
+
+            try (FileOutputStream fileOut = new FileOutputStream(CLIENT_PATH)) {
+                fileOut.write(inputBuffer.toString().getBytes());
+            }
+        } catch (Exception e) {
+
+        }
     }
 }
-
-public String getLineById(String id) {
-    try (Scanner scanner = new Scanner(this.file)) {
-        while (scanner.hasNextLine()) {
-            String data = scanner.nextLine();
-            String[] array = data.split(",");
-
-            if (id.equals(array[0])) {
-                return data;
-            }
-        }
-        return null;
-    } catch (IOException e) {
-        return null;
-    }
-}
-public void deleteLine(String targetLine) {
-    try (BufferedReader bufferedReader = new BufferedReader(new FileReader(CLIENT_PATH))) {
-        StringBuffer inputBuffer = new StringBuffer();
-        String line;
-
-        while ((line = bufferedReader.readLine()) != null) {
-            if (!line.equals(targetLine)) {
-                inputBuffer.append(line);
-                inputBuffer.append('\n');
-            }
-
-        }
-
-try (FileOutputStream fileOut = new FileOutputStream(CLIENT_PATH)) {
-    fileOut.write(inputBuffer.toString().getBytes());
-}
-} catch (Exception e) {
-
-}
-}}
-

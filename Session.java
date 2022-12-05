@@ -95,6 +95,15 @@ public class Session {
         }
     }
 
+    public void createBicyle() {
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.println("enter the bicycle information, please!");
+            Bicycle bicyle = this.buildBicycle();
+            String line = bicyle.getBicyleAsCsvLine();
+            bicyleFile.addLine(line);
+        }
+    }
+
     public void deleteBooking() {
         bookingFile.displayFile();
         try (Scanner sc = new Scanner(System.in)) {
@@ -106,18 +115,18 @@ public class Session {
             }
         }
     }
+
     public void deleteClient() {
         clientFile.displayFile();
         try (Scanner sc = new Scanner(System.in)) {
             System.out.println("Enter the client number to delete, please!");
             String clientId = sc.next();
-            String targetLine = bookingFile.getLineById(clientId);
+            String targetLine = clientFile.getLineById(clientId);
             if (targetLine != null) {
                 clientFile.deleteLine(targetLine);
             }
         }
     }
-
 
     public void bookBicyle() {
         Booking booking = this.buildBooking();

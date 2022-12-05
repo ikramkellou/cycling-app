@@ -52,7 +52,6 @@ public class BicyleFile {
             return null;
         }
     }
-  
 
     public void replaceLine(String targetLine, String replacementLine) {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(BICYCLE_PATH))) {
@@ -67,10 +66,9 @@ public class BicyleFile {
                 inputBuffer.append('\n');
             }
 
-           
-
         }
     }
+
     public void deleteLine(String targetLine) {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(BICYCLE_PATH))) {
             StringBuffer inputBuffer = new StringBuffer();
@@ -90,5 +88,9 @@ public class BicyleFile {
         } catch (Exception e) {
 
         }
+    }
+
+    public void addLine(String line) {
+
     }
 }
