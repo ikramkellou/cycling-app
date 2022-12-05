@@ -52,6 +52,7 @@ public class BicyleFile {
             return null;
         }
     }
+  
 
     public void replaceLine(String targetLine, String replacementLine) {
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(BICYCLE_PATH))) {
@@ -64,6 +65,23 @@ public class BicyleFile {
                 }
                 inputBuffer.append(line);
                 inputBuffer.append('\n');
+            }
+
+           
+
+        }
+    }
+    public void deleteLine(String targetLine) {
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(BICYCLE_PATH))) {
+            StringBuffer inputBuffer = new StringBuffer();
+            String line;
+
+            while ((line = bufferedReader.readLine()) != null) {
+                if (!line.equals(targetLine)) {
+                    inputBuffer.append(line);
+                    inputBuffer.append('\n');
+                }
+
             }
 
             try (FileOutputStream fileOut = new FileOutputStream(BICYCLE_PATH)) {

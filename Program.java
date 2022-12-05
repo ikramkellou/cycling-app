@@ -29,6 +29,7 @@ public class Program {
                     // same as session.deleteBooking()
                     break;
                 case 4:
+                    session.deleteClient();
                     // TODO: implement session.deleteClient()
                     // same as session.deleteBooking()
                     break;
